@@ -1,0 +1,29 @@
+name: Daily Contributions
+
+on:
+  schedule:
+    - cron: '0 0 * * 1-5' # Runs at midnight, Monday to Friday
+
+jobs:
+  make-contribution:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch full commit history
+
+      - name: Make daily contribution
+        run: |
+          echo "Making daily contribution"
+          echo "$(date)" >> README.md
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: "Daily Contribution"
+          commit-message: "Daily contribution"
+          branch: daily-contribution
+          base: main
+          body: "This pull request was created automatically by a GitHub Actions workflow to make a daily contribution."
+          token: ${{ secrets.GITHUB_TOKEN }}
