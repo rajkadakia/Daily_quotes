@@ -12,6 +12,15 @@ jobs:
         with:
           fetch-depth: 0 # Fetch full commit history
 
+      - name: Set up Git
+        run: |
+          git config --global user.name "rajkadakia"
+          git config --global user.email "rk2163@srmist.edu.in" # Ensure this is your verified GitHub email
+
+      - name: Ensure README.md exists
+        run: |
+          touch README.md # Creates the file if it doesn't exist
+
       - name: Make multiple contributions
         run: |
           for i in {1..4}
@@ -23,7 +32,5 @@ jobs:
           done
 
       - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          branch: main # Push directly to main
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push origin main
