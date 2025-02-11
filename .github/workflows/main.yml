@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: '0 0 * * 1-5' # Runs at midnight UTC, Monday to Friday
+    - cron: '0 0 */2 * *' # Runs every alternate day at midnight UTC
   workflow_dispatch: # Allows manual execution
 
 jobs:
@@ -12,18 +12,15 @@ jobs:
         with:
           fetch-depth: 0 # Fetch full commit history
 
-      - name: Make daily contribution
+      - name: Make multiple contributions
         run: |
-          echo "Making daily contribution" >> README.md
-          echo "$(date)" >> README.md
-
-      - name: Commit changes
-        uses: EndBug/add-and-commit@v7
-        with:
-          author_name: "rajkadakia"
-          author_email: "rk2163@srmist.edu.in" # Ensure this matches your GitHub email
-          message: "Daily contribution"
-          add: "README.md"
+          for i in {1..4}
+          do
+            echo "Contribution $i on $(date)" >> README.md
+            git add README.md
+            git commit -m "Contribution $i on $(date)"
+            sleep 5  # Ensures GitHub registers separate commits
+          done
 
       - name: Push changes
         uses: ad-m/github-push-action@master
