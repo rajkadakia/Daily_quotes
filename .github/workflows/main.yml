@@ -15,7 +15,7 @@ jobs:
       - name: Set up Git
         run: |
           git config --global user.name "rajkadakia"
-          git config --global user.email "rk2163@srmist.edu.in" # Replace with a GitHub secret for security
+          git config --global user.email "${{ secrets.USER_EMAIL }}" # Replace with a GitHub secret for security
 
       - name: Ensure README.md exists
         run: |
