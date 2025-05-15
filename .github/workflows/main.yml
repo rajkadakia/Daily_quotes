@@ -31,6 +31,6 @@ jobs:
             sleep $((RANDOM % 10 + 10))  # Random sleep between 10-20 seconds to avoid GitHub merging commits
           done
 
-      - name: Push changes
+      - name: Push changes in myselff
         run: |
           git push origin main
