@@ -30,7 +30,6 @@ This repository automatically updates its `README.md` file every 4 days with 3 n
 Quotes are added below this section every 4 days:
 
 <!--QUOTE_START-->
-> _No quote fetched this time._
 > _A person hears only what they understand. — Johann Wolfgang von Goethe_
 
 <!--QUOTE_END-->
