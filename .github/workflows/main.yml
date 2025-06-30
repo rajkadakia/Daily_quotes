@@ -1,59 +1,49 @@
-name: Rotate Quotes in README
+name: Rotate Single Quote
 
 on:
   schedule:
     - cron: '0 0 */4 * *' # Every 4 days at midnight UTC
-  workflow_dispatch:
+  workflow_dispatch: # Manual trigger
 
 jobs:
-  rotate-quote:
+  quote-bot:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Set up Git
         run: |
           git config --global user.name "rajkadakia"
           git config --global user.email "rk2163@srmist.edu.in"
 
-      - name: Pick quote type
-        id: quote_type
+      - name: Install jq
+        run: sudo apt-get update && sudo apt-get install -y jq
+
+      - name: Fetch and insert single quote
         run: |
-          if [ $((RANDOM % 2)) -eq 0 ]; then
-            echo "type=motivational" >> $GITHUB_OUTPUT
+          TYPE=$(( RANDOM % 2 == 0 ? "motivational" : "tech" ))
+
+          if [ "$TYPE" = "motivational" ]; then
+            QUOTE=$(curl -s https://zenquotes.io/api/random | jq -r '.[0].q + " — " + .[0].a')
           else
-            echo "type=tech" >> $GITHUB_OUTPUT
+            QUOTE=$(curl -s "https://api.quotable.io/random?tags=technology,famous-quotes" | jq -r '.content + " — " + .author')
           fi
 
-      - name: Fetch and commit 3 quotes
+          if [ -n "$QUOTE" ]; then
+            echo "> _${QUOTE}_" > quote.txt
+          else
+            echo "> _No quote fetched this time._" > quote.txt
+          fi
+
+          # Insert quote between markers
+          awk '/<!--QUOTE_START-->/ { print; while (getline < "quote.txt") print; skip=1; next }
+               /<!--QUOTE_END-->/ { skip=0 }
+               !skip' README.md > temp.md && mv temp.md README.md
+
+      - name: Commit and Push
         run: |
-          QUOTE_TYPE="${{ steps.quote_type.outputs.type }}"
-          for i in {1..3}
-          do
-            if [ "$QUOTE_TYPE" = "motivational" ]; then
-              QUOTE=$(curl -s https://zenquotes.io/api/random | jq -r '.[0].q + " — " + .[0].a')
-            else
-              QUOTE=$(curl -s https://api.quotable.io/random?tags=technology,famous-quotes | jq -r '.content + " — " + .author')
-            fi
-
-            awk -v quote="> _${QUOTE}_" '
-              /<!--QUOTE_END-->/ {
-                print quote "\n";
-              }
-              { print }
-            ' README.md > temp.md && mv temp.md README.md
-
-            git add README.md
-            if git diff --cached --quiet; then
-              echo "⚠️ Quote $i not added (duplicate or unchanged)"
-            else
-              git commit -m "🔁 Added quote $i"
-              sleep $((RANDOM % 10 + 5))
-            fi
-          done
-
+          git add README.md
+          git commit -m "📌 Added new quote" || echo "🟡 No changes to commit"
           git push
