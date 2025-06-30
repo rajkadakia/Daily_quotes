@@ -13,6 +13,8 @@ This repository automatically updates its `README.md` file every 4 days with 3 n
 
 > __
 
+> __
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -30,6 +32,8 @@ This repository automatically updates its `README.md` file every 4 days with 3 n
 Quotes are added below this section every 4 days:
 
 <!--QUOTE_START-->
+> __
+
 > __
 
 > __
