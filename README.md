@@ -1,42 +1,33 @@
-# 🧠 Quote Rotation Bot
+# 🔁 Auto-Updating Quotes Repository
 
-This repository is powered by a GitHub Action that updates the README every 4 days with either a **motivational** or **technical quote**.
+This repository automatically updates its `README.md` file every 4 days with 3 new quotes — either motivational or technology-related — using a GitHub Actions workflow.
 
-one commit at a time!
+## 🚀 How It Works
 
----
+- Every 4 days, a GitHub Actions workflow is triggered.
+- A quote category (`motivational` or `tech`) is randomly selected.
+- 3 quotes are fetched from online APIs:
+  - **Motivational**: [ZenQuotes.io](https://zenquotes.io)
+  - **Tech/General**: [Quotable API](https://api.quotable.io)
+- Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
+- Each quote insertion is committed separately to simulate 3 contributions.
 
-<!-- START_QUOTES -->
+## 🔧 Workflow Details
 
+- **Schedule**: Runs every 4 days using cron.
+- **Commits**: Makes 3 separate commits per run (if changes are made).
+- **Languages Used**: Shell, YAML
+- **APIs**:
+  - `https://zenquotes.io/api/random`
+  - `https://api.quotable.io/random?tags=technology,famous-quotes`
 
-<!-- END_QUOTES -->
+## 📄 Auto-Inserted Quotes
 
----
+Quotes are added below this section every 4 days:
 
-## 📅 How It Works
-
-- Every 4 days (via cron), this repo pulls a quote using:
-  - [ZenQuotes API](https://zenquotes.io) for motivational quotes
-  - [Programming Quotes API](https://programming-quotes-api.vercel.app) for tech quotes
-- The quote alternates between categories (motivational ↔ tech)
-- The latest quote is updated in this README automatically
-
-## ⚙️ Automation Details
-
-Powered by:
-- GitHub Actions
-- `curl` + `jq`
-- Public quote APIs
-
-## 💡 Want to Use This?
-
-Fork this repo, and it’ll work out of the box. Just make sure you:
-- Create `quote_type.txt` with `motivational` inside it.
-- Keep the comment tags `<!-- START_QUOTES -->` and `<!-- END_QUOTES -->` unchanged in your README.
+<!--QUOTE_START-->
+<!--QUOTE_END-->
 
 ---
 
-
-📜 **Quote of the Day**:
-
-> _Enthusiasm makes up for a host of deficiencies. — Barack Obama_
+> 💡 _This setup is useful for keeping your GitHub profile active with meaningful updates — not spammy commits._
