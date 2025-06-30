@@ -1,36 +1,60 @@
+name: 🔁 Rotate Quotes in README
+
 on:
   schedule:
-    - cron: '0 0 */4 * *' # Runs every 4 days at midnight UTC
-  workflow_dispatch: # Allows manual execution
+    - cron: '0 0 */4 * *'
+  workflow_dispatch:
 
 jobs:
-  make-contribution:
+  rotate-quote:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      - name: ⏬ Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Fetch full commit history
+          fetch-depth: 0
 
-      - name: Set up Git
+      - name: 🧰 Set up Git
         run: |
           git config --global user.name "rajkadakia"
-          git config --global user.email "rk2163@srmist.edu.in" # Replace with a GitHub secret for security
+          git config --global user.email "rk2163@srmist.edu.in"
 
-      - name: Ensure README.md exists
+      - name: 📖 Read current quote type
+        id: quote_type
         run: |
-          touch README.md # Creates the file if it doesn't exist
+          TYPE=$(cat quote_type.txt)
+          echo "QUOTE_TYPE=$TYPE" >> $GITHUB_ENV
 
-      - name: Make multiple contributions
+      - name: 🧠 Fetch quote
+        id: get_quote
         run: |
-          for i in {1..4}
-          do
-            echo "Contribution $i on $(date)" >> README.md
-            git add README.md
-            git commit -m "Contribution $i on $(date) [skip ci]"
-            sleep $((RANDOM % 10 + 10))  # Random sleep between 10-20 seconds to avoid GitHub merging commits
-          done
+          if [[ "${QUOTE_TYPE}" == "motivational" ]]; then
+            JSON=$(curl -s https://zenquotes.io/api/random)
+            QUOTE=$(echo "$JSON" | jq -r '.[0].q')
+            AUTHOR=$(echo "$JSON" | jq -r '.[0].a')
+            NEXT_TYPE="tech"
+          else
+            JSON=$(curl -s https://programming-quotes-api.vercel.app/api/random)
+            QUOTE=$(echo "$JSON" | jq -r '.en')
+            AUTHOR=$(echo "$JSON" | jq -r '.author')
+            NEXT_TYPE="motivational"
+          fi
 
-      - name: Push changes in myselff
+          echo "QUOTE_TEXT=$QUOTE" >> $GITHUB_ENV
+          echo "QUOTE_AUTHOR=$AUTHOR" >> $GITHUB_ENV
+          echo "NEXT_QUOTE_TYPE=$NEXT_TYPE" >> $GITHUB_ENV
+          echo "UPDATED_TIME=$(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_ENV
+
+      - name: 📝 Update README
         run: |
+          sed -i '/<!-- START_QUOTES -->/,/<!-- END_QUOTES -->/c\<!-- START_QUOTES -->\n> '"$QUOTE_TEXT"' — *'"$QUOTE_AUTHOR"'*\n\n⏱️ Last updated: '"$UPDATED_TIME"'\n<!-- END_QUOTES -->' README.md
+
+      - name: 💾 Update quote type
+        run: echo "$NEXT_QUOTE_TYPE" > quote_type.txt
+
+      - name: 🚀 Commit and Push
+        run: |
+          git add README.md quote_type.txt
+          git commit -m "🔁 Rotate quote to $NEXT_QUOTE_TYPE [skip ci]" || echo "No changes"
           git push origin main
