@@ -36,3 +36,7 @@ Fork this repo, and it’ll work out of the box. Just make sure you:
 
 ---
 
+
+📜 **Quote of the Day**:
+
+> _Enthusiasm makes up for a host of deficiencies. — Barack Obama_
