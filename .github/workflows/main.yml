@@ -2,48 +2,55 @@ name: Rotate Single Quote
 
 on:
   schedule:
-    - cron: '0 0 */4 * *' # Every 4 days at midnight UTC
-  workflow_dispatch: # Manual trigger
+    - cron: '0 0 */4 * *'  # Every 4 days at midnight UTC
+  workflow_dispatch:
 
 jobs:
-  quote-bot:
+  rotate-quote:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Git
         run: |
           git config --global user.name "rajkadakia"
           git config --global user.email "rk2163@srmist.edu.in"
 
-      - name: Install jq
-        run: sudo apt-get update && sudo apt-get install -y jq
-
-      - name: Fetch and insert single quote
+      - name: Decide quote type (motivation or tech)
+        id: set_type
         run: |
-          TYPE=$(( RANDOM % 2 == 0 ? "motivational" : "tech" ))
+          if (( $(date +%s) % 2 == 0 )); then
+            echo "TYPE=motivational" >> $GITHUB_ENV
+          else
+            echo "TYPE=tech" >> $GITHUB_ENV
+          fi
 
+      - name: Fetch quote and update README
+        run: |
           if [ "$TYPE" = "motivational" ]; then
             QUOTE=$(curl -s https://zenquotes.io/api/random | jq -r '.[0].q + " — " + .[0].a')
           else
             QUOTE=$(curl -s "https://api.quotable.io/random?tags=technology,famous-quotes" | jq -r '.content + " — " + .author')
           fi
 
-          if [ -n "$QUOTE" ]; then
-            echo "> _${QUOTE}_" > quote.txt
-          else
-            echo "> _No quote fetched this time._" > quote.txt
+          # Fallback in case quote fetch fails
+          if [ -z "$QUOTE" ] || [ "$QUOTE" = "null — null" ]; then
+            QUOTE="Stay curious, keep learning, and never stop growing. — Anonymous"
           fi
 
-          # Insert quote between markers
-          awk '/<!--QUOTE_START-->/ { print; while (getline < "quote.txt") print; skip=1; next }
-               /<!--QUOTE_END-->/ { skip=0 }
-               !skip' README.md > temp.md && mv temp.md README.md
+          # Insert quote above <!--QUOTE_END-->
+          awk -v quote="> _${QUOTE}_" '
+            /<!--QUOTE_END-->/ {
+              print quote "\n";
+            }
+            { print }
+          ' README.md > temp.md && mv temp.md README.md
 
       - name: Commit and Push
         run: |
           git add README.md
-          git commit -m "📌 Added new quote" || echo "🟡 No changes to commit"
+          git commit -m "🔁 Add new quote: $QUOTE" || echo "Nothing to commit"
           git push
