@@ -36,4 +36,3 @@ Fork this repo, and it’ll work out of the box. Just make sure you:
 
 ---
 
-Made with 💻 by [rajkadakia](https://github.com/rajkadakia)
