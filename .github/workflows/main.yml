@@ -1,8 +1,8 @@
-name: Rotate Quote from API
+name: Rotate 3 Quotes Every 4 Days
 
 on:
   schedule:
-    - cron: '0 0 */4 * *'  # Every 4 days
+    - cron: '0 0 */4 * *'  # Every 4 days at midnight UTC
   workflow_dispatch:
 
 jobs:
@@ -13,29 +13,40 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Read current quote type
+      - name: Set up Git
+        run: |
+          git config --global user.name "rajkadakia"
+          git config --global user.email "rk2163@srmist.edu.in"
+
+      - name: Read quote type
         id: quote_type
         run: |
           TYPE=$(cat quote_type.txt)
           echo "type=$TYPE" >> $GITHUB_OUTPUT
 
-      - name: Fetch quote from API
-        id: fetch_quote
+      - name: Fetch and commit 3 quotes
         run: |
-          if [ "${{ steps.quote_type.outputs.type }}" = "motivational" ]; then
-            QUOTE=$(curl -s https://zenquotes.io/api/random | jq -r '.[0].q + " — " + .[0].a')
-          else
-            QUOTE=$(curl -s https://api.quotable.io/random?tags=technology,famous-quotes | jq -r '.content + " — " + .author')
-          fi
-          echo "quote=$QUOTE" >> $GITHUB_OUTPUT
+          for i in {1..3}
+          do
+            if [ "${{ steps.quote_type.outputs.type }}" = "motivational" ]; then
+              QUOTE=$(curl -s https://zenquotes.io/api/random | jq -r '.[0].q + " — " + .[0].a')
+            else
+              QUOTE=$(curl -s https://api.quotable.io/random?tags=technology,famous-quotes | jq -r '.content + " — " + .author')
+            fi
 
-      - name: Update README
-        run: |
-          echo -e "\n📜 **Quote of the Day**:\n\n> _${{ steps.fetch_quote.outputs.quote }}_" >> README.md
-          git config --global user.name "rajkadakia"
-          git config --global user.email "rk2163@srmist.edu.in"
-          git add README.md
-          git commit -m "📖 Updated quote from API"
+            # Insert new quote before <!--QUOTE_END-->
+            awk -v quote="> _${QUOTE}_" '
+              /<!--QUOTE_END-->/ {
+                print quote "\n";
+              }
+              { print }
+            ' README.md > temp.md && mv temp.md README.md
+
+            git add README.md
+            git commit -m "🔁 Added quote $i: $QUOTE"
+            sleep $((RANDOM % 10 + 5))
+          done
+
           git push
 
       - name: Rotate quote type
@@ -47,5 +58,5 @@ jobs:
             echo "motivational" > quote_type.txt
           fi
           git add quote_type.txt
-          git commit -m "🔁 Switched quote type to $(cat quote_type.txt)"
+          git commit -m "♻️ Rotated quote type"
           git push
