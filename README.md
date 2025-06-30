@@ -1,57 +1,39 @@
+# 🧠 Quote Rotation Bot
 
-Contribution 1 on Thu May 15 13:44:50 UTC 2025
-Contribution 2 on Thu May 15 13:45:04 UTC 2025
-Contribution 3 on Thu May 15 13:45:17 UTC 2025
-Contribution 4 on Thu May 15 13:45:31 UTC 2025
-Contribution 1 on Thu May 15 13:48:59 UTC 2025
-Contribution 2 on Thu May 15 13:49:13 UTC 2025
-Contribution 3 on Thu May 15 13:49:28 UTC 2025
-Contribution 4 on Thu May 15 13:49:44 UTC 2025
-Contribution 1 on Sat May 17 01:02:49 UTC 2025
-Contribution 2 on Sat May 17 01:03:08 UTC 2025
-Contribution 3 on Sat May 17 01:03:27 UTC 2025
-Contribution 4 on Sat May 17 01:03:46 UTC 2025
-Contribution 1 on Wed May 21 01:04:29 UTC 2025
-Contribution 2 on Wed May 21 01:04:40 UTC 2025
-Contribution 3 on Wed May 21 01:04:54 UTC 2025
-Contribution 4 on Wed May 21 01:05:12 UTC 2025
-Contribution 1 on Sun May 25 01:10:02 UTC 2025
-Contribution 2 on Sun May 25 01:10:17 UTC 2025
-Contribution 3 on Sun May 25 01:10:35 UTC 2025
-Contribution 4 on Sun May 25 01:10:48 UTC 2025
-Contribution 1 on Thu May 29 01:04:47 UTC 2025
-Contribution 2 on Thu May 29 01:05:03 UTC 2025
-Contribution 3 on Thu May 29 01:05:21 UTC 2025
-Contribution 4 on Thu May 29 01:05:39 UTC 2025
-Contribution 1 on Sun Jun  1 01:17:07 UTC 2025
-Contribution 2 on Sun Jun  1 01:17:18 UTC 2025
-Contribution 3 on Sun Jun  1 01:17:31 UTC 2025
-Contribution 4 on Sun Jun  1 01:17:47 UTC 2025
-Contribution 1 on Thu Jun  5 01:04:45 UTC 2025
-Contribution 2 on Thu Jun  5 01:04:59 UTC 2025
-Contribution 3 on Thu Jun  5 01:05:18 UTC 2025
-Contribution 4 on Thu Jun  5 01:05:32 UTC 2025
-Contribution 1 on Mon Jun  9 01:09:01 UTC 2025
-Contribution 2 on Mon Jun  9 01:09:13 UTC 2025
-Contribution 3 on Mon Jun  9 01:09:24 UTC 2025
-Contribution 4 on Mon Jun  9 01:09:40 UTC 2025
-Contribution 1 on Fri Jun 13 01:06:22 UTC 2025
-Contribution 2 on Fri Jun 13 01:06:40 UTC 2025
-Contribution 3 on Fri Jun 13 01:06:54 UTC 2025
-Contribution 4 on Fri Jun 13 01:07:08 UTC 2025
-Contribution 1 on Tue Jun 17 01:05:51 UTC 2025
-Contribution 2 on Tue Jun 17 01:06:06 UTC 2025
-Contribution 3 on Tue Jun 17 01:06:23 UTC 2025
-Contribution 4 on Tue Jun 17 01:06:42 UTC 2025
-Contribution 1 on Sat Jun 21 01:04:42 UTC 2025
-Contribution 2 on Sat Jun 21 01:05:01 UTC 2025
-Contribution 3 on Sat Jun 21 01:05:19 UTC 2025
-Contribution 4 on Sat Jun 21 01:05:34 UTC 2025
-Contribution 1 on Wed Jun 25 01:06:53 UTC 2025
-Contribution 2 on Wed Jun 25 01:07:11 UTC 2025
-Contribution 3 on Wed Jun 25 01:07:27 UTC 2025
-Contribution 4 on Wed Jun 25 01:07:42 UTC 2025
-Contribution 1 on Sun Jun 29 01:13:51 UTC 2025
-Contribution 2 on Sun Jun 29 01:14:08 UTC 2025
-Contribution 3 on Sun Jun 29 01:14:18 UTC 2025
-Contribution 4 on Sun Jun 29 01:14:31 UTC 2025
+This repository is powered by a GitHub Action that updates the README every 4 days with either a **motivational** or **technical quote**.
+
+one commit at a time!
+
+---
+
+<!-- START_QUOTES -->
+
+
+<!-- END_QUOTES -->
+
+---
+
+## 📅 How It Works
+
+- Every 4 days (via cron), this repo pulls a quote using:
+  - [ZenQuotes API](https://zenquotes.io) for motivational quotes
+  - [Programming Quotes API](https://programming-quotes-api.vercel.app) for tech quotes
+- The quote alternates between categories (motivational ↔ tech)
+- The latest quote is updated in this README automatically
+
+## ⚙️ Automation Details
+
+Powered by:
+- GitHub Actions
+- `curl` + `jq`
+- Public quote APIs
+
+## 💡 Want to Use This?
+
+Fork this repo, and it’ll work out of the box. Just make sure you:
+- Create `quote_type.txt` with `motivational` inside it.
+- Keep the comment tags `<!-- START_QUOTES -->` and `<!-- END_QUOTES -->` unchanged in your README.
+
+---
+
+Made with 💻 by [rajkadakia](https://github.com/rajkadakia)
