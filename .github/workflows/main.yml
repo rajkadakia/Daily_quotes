@@ -1,60 +1,51 @@
-name: 🔁 Rotate Quotes in README
+name: Rotate Quote from API
 
 on:
   schedule:
-    - cron: '0 0 */4 * *'
+    - cron: '0 0 */4 * *'  # Every 4 days
   workflow_dispatch:
 
 jobs:
-  rotate-quote:
+  update-readme:
     runs-on: ubuntu-latest
 
     steps:
-      - name: ⏬ Checkout
+      - name: Checkout repo
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - name: 🧰 Set up Git
-        run: |
-          git config --global user.name "rajkadakia"
-          git config --global user.email "rk2163@srmist.edu.in"
-
-      - name: 📖 Read current quote type
+      - name: Read current quote type
         id: quote_type
         run: |
           TYPE=$(cat quote_type.txt)
-          echo "QUOTE_TYPE=$TYPE" >> $GITHUB_ENV
+          echo "type=$TYPE" >> $GITHUB_OUTPUT
 
-      - name: 🧠 Fetch quote
-        id: get_quote
+      - name: Fetch quote from API
+        id: fetch_quote
         run: |
-          if [[ "${QUOTE_TYPE}" == "motivational" ]]; then
-            JSON=$(curl -s https://zenquotes.io/api/random)
-            QUOTE=$(echo "$JSON" | jq -r '.[0].q')
-            AUTHOR=$(echo "$JSON" | jq -r '.[0].a')
-            NEXT_TYPE="tech"
+          if [ "${{ steps.quote_type.outputs.type }}" = "motivational" ]; then
+            QUOTE=$(curl -s https://zenquotes.io/api/random | jq -r '.[0].q + " — " + .[0].a')
           else
-            JSON=$(curl -s https://programming-quotes-api.vercel.app/api/random)
-            QUOTE=$(echo "$JSON" | jq -r '.en')
-            AUTHOR=$(echo "$JSON" | jq -r '.author')
-            NEXT_TYPE="motivational"
+            QUOTE=$(curl -s https://api.quotable.io/random?tags=technology,famous-quotes | jq -r '.content + " — " + .author')
           fi
+          echo "quote=$QUOTE" >> $GITHUB_OUTPUT
 
-          echo "QUOTE_TEXT=$QUOTE" >> $GITHUB_ENV
-          echo "QUOTE_AUTHOR=$AUTHOR" >> $GITHUB_ENV
-          echo "NEXT_QUOTE_TYPE=$NEXT_TYPE" >> $GITHUB_ENV
-          echo "UPDATED_TIME=$(date -u +"%Y-%m-%d %H:%M:%S UTC")" >> $GITHUB_ENV
-
-      - name: 📝 Update README
+      - name: Update README
         run: |
-          sed -i '/<!-- START_QUOTES -->/,/<!-- END_QUOTES -->/c\<!-- START_QUOTES -->\n> '"$QUOTE_TEXT"' — *'"$QUOTE_AUTHOR"'*\n\n⏱️ Last updated: '"$UPDATED_TIME"'\n<!-- END_QUOTES -->' README.md
+          echo -e "\n📜 **Quote of the Day**:\n\n> _${{ steps.fetch_quote.outputs.quote }}_" >> README.md
+          git config --global user.name "rajkadakia"
+          git config --global user.email "rk2163@srmist.edu.in"
+          git add README.md
+          git commit -m "📖 Updated quote from API"
+          git push
 
-      - name: 💾 Update quote type
-        run: echo "$NEXT_QUOTE_TYPE" > quote_type.txt
-
-      - name: 🚀 Commit and Push
+      - name: Rotate quote type
         run: |
-          git add README.md quote_type.txt
-          git commit -m "🔁 Rotate quote to $NEXT_QUOTE_TYPE [skip ci]" || echo "No changes"
-          git push origin main
+          CURRENT=$(cat quote_type.txt)
+          if [ "$CURRENT" = "motivational" ]; then
+            echo "tech" > quote_type.txt
+          else
+            echo "motivational" > quote_type.txt
+          fi
+          git add quote_type.txt
+          git commit -m "🔁 Switched quote type to $(cat quote_type.txt)"
+          git push
