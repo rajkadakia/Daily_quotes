@@ -1,12 +1,12 @@
 # 🔁 Auto-Updating Quotes Repository
 
-This repository automatically updates its `README.md` file every 4 days with 3 new quotes — either motivational or technology-related — using a GitHub Actions workflow.
+This repository automatically updates its `README.md` file every 4 days with 1 new quote — either motivational or technology-related — using a GitHub Actions workflow.
 
 ## 🚀 How It Works
 
 - Every 4 days, a GitHub Actions workflow is triggered.
 - A quote category (`motivational` or `tech`) is randomly selected.
-- 3 quotes are fetched from online APIs:
+- 1 quote is fetched from online APIs:
   - **Motivational**: [ZenQuotes.io](https://zenquotes.io)
   - **Tech/General**: [Quotable API](https://api.quotable.io)
 
@@ -21,7 +21,7 @@ This repository automatically updates its `README.md` file every 4 days with 3 n
 ## 🔧 Workflow Details
 
 - **Schedule**: Runs every 4 days using cron.
-- **Commits**: Makes 3 separate commits per run (if changes are made).
+- **Commits**: Makes 1 commit per run (if changes are made).
 - **Languages Used**: Shell, YAML
 - **APIs**:
   - `https://zenquotes.io/api/random`
