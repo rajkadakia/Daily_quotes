@@ -13,6 +13,8 @@ This repository automatically updates its `README.md` file every 4 days with 3 n
 
 > _A person hears only what they understand. — Johann Wolfgang von Goethe_
 
+> _Anxiety is the dizziness of freedom. — Soren Kierkegaard_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -31,6 +33,8 @@ Quotes are added below this section every 4 days:
 
 <!--QUOTE_START-->
 > _A person hears only what they understand. — Johann Wolfgang von Goethe_
+
+> _Anxiety is the dizziness of freedom. — Soren Kierkegaard_
 
 <!--QUOTE_END-->
 
