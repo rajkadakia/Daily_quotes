@@ -11,19 +11,7 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
   - **Tech/General**: [Quotable API](https://api.quotable.io)
 
 
-> _A person hears only what they understand. — Johann Wolfgang von Goethe_
 
-> _Anxiety is the dizziness of freedom. — Soren Kierkegaard_
-
-> _Stay curious, keep learning, and never stop growing. — Anonymous_
-
-> _Stay curious, keep learning, and never stop growing. — Anonymous_
-
-> _Turn your face to the sun, as flowers know how to do. — Ming-Dao Deng_
-
-> _Stay curious, keep learning, and never stop growing. — Anonymous_
-
-> _Stay curious, keep learning, and never stop growing. — Anonymous_
 
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
@@ -42,19 +30,6 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 Quotes are added below this section every 4 days:
 
 <!--QUOTE_START-->
-> _A person hears only what they understand. — Johann Wolfgang von Goethe_
-
-> _Anxiety is the dizziness of freedom. — Soren Kierkegaard_
-
-> _Stay curious, keep learning, and never stop growing. — Anonymous_
-
-> _Stay curious, keep learning, and never stop growing. — Anonymous_
-
-> _Turn your face to the sun, as flowers know how to do. — Ming-Dao Deng_
-
-> _Stay curious, keep learning, and never stop growing. — Anonymous_
-
-> _Stay curious, keep learning, and never stop growing. — Anonymous_
 
 <!--QUOTE_END-->
 
