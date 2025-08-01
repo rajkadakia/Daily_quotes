@@ -19,6 +19,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _The less you want, the richer you are. The more you need in order to be happy, the more miserable you'll be. — Yanni_
 
+> _Stay curious, keep learning, and never stop growing. — Anonymous_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -42,6 +44,8 @@ Quotes are added below this section every 4 days:
 > _It is the power of thought that gives man power over nature. — Hans Christian Andersen_
 
 > _The less you want, the richer you are. The more you need in order to be happy, the more miserable you'll be. — Yanni_
+
+> _Stay curious, keep learning, and never stop growing. — Anonymous_
 
 <!--QUOTE_END-->
 
