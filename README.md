@@ -33,6 +33,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _Nature does not hurry, yet everything is accomplished. — Lao Tzu_
 
+> _Tall oaks grow from little acorns. — Andrew Carnegie_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -70,6 +72,8 @@ Quotes are added below this section every 4 days:
 > _Success is a consequence and must not be a goal. — Gustave Flaubert_
 
 > _Nature does not hurry, yet everything is accomplished. — Lao Tzu_
+
+> _Tall oaks grow from little acorns. — Andrew Carnegie_
 
 <!--QUOTE_END-->
 
