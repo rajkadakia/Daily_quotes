@@ -35,6 +35,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _Tall oaks grow from little acorns. — Andrew Carnegie_
 
+> _You are the sky. Everything else - it's just the weather. — Pema Chodron_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -74,6 +76,8 @@ Quotes are added below this section every 4 days:
 > _Nature does not hurry, yet everything is accomplished. — Lao Tzu_
 
 > _Tall oaks grow from little acorns. — Andrew Carnegie_
+
+> _You are the sky. Everything else - it's just the weather. — Pema Chodron_
 
 <!--QUOTE_END-->
 
