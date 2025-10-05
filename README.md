@@ -39,6 +39,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _Failure will never overtake me if my determination to succeed is strong enough. — Og Mandino_
 
+> _Stay curious, keep learning, and never stop growing. — Anonymous_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -82,6 +84,8 @@ Quotes are added below this section every 4 days:
 > _You are the sky. Everything else - it's just the weather. — Pema Chodron_
 
 > _Failure will never overtake me if my determination to succeed is strong enough. — Og Mandino_
+
+> _Stay curious, keep learning, and never stop growing. — Anonymous_
 
 <!--QUOTE_END-->
 
