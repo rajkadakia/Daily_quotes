@@ -63,6 +63,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _Stay curious, keep learning, and never stop growing. — Anonymous_
 
+> _Wishing to be friends is quick work, but friendship is a slow ripening fruit. — Aristotle_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -130,6 +132,8 @@ Quotes are added below this section every 4 days:
 > _Forgive yourself for your faults and your mistakes and move on. — Les Brown_
 
 > _Stay curious, keep learning, and never stop growing. — Anonymous_
+
+> _Wishing to be friends is quick work, but friendship is a slow ripening fruit. — Aristotle_
 
 <!--QUOTE_END-->
 
