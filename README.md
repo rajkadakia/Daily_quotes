@@ -109,6 +109,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _The river that flows in you also flows in me. — Kabir_
 
+> _No man is more cheated than the selfish man. — Henry Ward Beecher_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -222,6 +224,8 @@ Quotes are added below this section every 4 days:
 > _He who can, does. — George Bernard Shaw_
 
 > _The river that flows in you also flows in me. — Kabir_
+
+> _No man is more cheated than the selfish man. — Henry Ward Beecher_
 
 <!--QUOTE_END-->
 
