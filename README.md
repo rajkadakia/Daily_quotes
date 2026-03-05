@@ -117,6 +117,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _When at last you are come to the ocean of happiness, do not go back thirsty. — Kabir_
 
+> _There is nothing quite so tragic as a young cynic. — Maya Angelou_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -238,6 +240,8 @@ Quotes are added below this section every 4 days:
 > _There is peace even in the storm. — Vincent van Gogh_
 
 > _When at last you are come to the ocean of happiness, do not go back thirsty. — Kabir_
+
+> _There is nothing quite so tragic as a young cynic. — Maya Angelou_
 
 <!--QUOTE_END-->
 
