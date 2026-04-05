@@ -133,6 +133,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _What the mind can conceive and believe, and the heart desire, you can achieve. — Norman Vincent Peale_
 
+> _Stay curious, keep learning, and never stop growing. — Anonymous_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -270,6 +272,8 @@ Quotes are added below this section every 4 days:
 > _It isn't what you have or who you are or where you are or what you are doing that makes you happy or unhappy. It is what you think about it. — Dale Carnegie_
 
 > _What the mind can conceive and believe, and the heart desire, you can achieve. — Norman Vincent Peale_
+
+> _Stay curious, keep learning, and never stop growing. — Anonymous_
 
 <!--QUOTE_END-->
 
