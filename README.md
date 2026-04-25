@@ -143,6 +143,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _The best teacher is experience and not through someone's distorted point of view. — Jack Kerouac_
 
+> _It is well known that those who do not trust themselves never trust others. — Alfred Adler_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -290,6 +292,8 @@ Quotes are added below this section every 4 days:
 > _Stay curious, keep learning, and never stop growing. — Anonymous_
 
 > _The best teacher is experience and not through someone's distorted point of view. — Jack Kerouac_
+
+> _It is well known that those who do not trust themselves never trust others. — Alfred Adler_
 
 <!--QUOTE_END-->
 
