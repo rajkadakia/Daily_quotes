@@ -161,6 +161,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _Stay curious, keep learning, and never stop growing. — Anonymous_
 
+> _There is no fear for one whose mind is not filled with desires. — Buddha_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -326,6 +328,8 @@ Quotes are added below this section every 4 days:
 > _Stay curious, keep learning, and never stop growing. — Anonymous_
 
 > _Stay curious, keep learning, and never stop growing. — Anonymous_
+
+> _There is no fear for one whose mind is not filled with desires. — Buddha_
 
 <!--QUOTE_END-->
 
