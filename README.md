@@ -177,6 +177,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _Age is a very high price to pay for maturity. — William James_
 
+> _A zen master's life is one continuous mistake. — Dogen_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -358,6 +360,8 @@ Quotes are added below this section every 4 days:
 > _Anyone who stops learning is old, whether at twenty or eighty. Anyone who keeps learning stays young. — Henry Ford_
 
 > _Age is a very high price to pay for maturity. — William James_
+
+> _A zen master's life is one continuous mistake. — Dogen_
 
 <!--QUOTE_END-->
 
