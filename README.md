@@ -181,6 +181,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _It is easier to put leather on the soles of one's feet than cover the world with leather. — Tibetan Proverb_
 
+> _Progress is limited by your ability to change your mind. — Jack Butcher_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -366,6 +368,8 @@ Quotes are added below this section every 4 days:
 > _A zen master's life is one continuous mistake. — Dogen_
 
 > _It is easier to put leather on the soles of one's feet than cover the world with leather. — Tibetan Proverb_
+
+> _Progress is limited by your ability to change your mind. — Jack Butcher_
 
 <!--QUOTE_END-->
 
