@@ -183,6 +183,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _Progress is limited by your ability to change your mind. — Jack Butcher_
 
+> _Freeing oneself from words is liberation. — Bodhidharma_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -370,6 +372,8 @@ Quotes are added below this section every 4 days:
 > _It is easier to put leather on the soles of one's feet than cover the world with leather. — Tibetan Proverb_
 
 > _Progress is limited by your ability to change your mind. — Jack Butcher_
+
+> _Freeing oneself from words is liberation. — Bodhidharma_
 
 <!--QUOTE_END-->
 
