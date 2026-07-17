@@ -187,6 +187,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _In a world that is constantly changing, it is to our advantage to learn how to adapt and enjoy something better. — Spencer Johnson_
 
+> _Remember we're all in this alone. — Lily Tomlin_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -378,6 +380,8 @@ Quotes are added below this section every 4 days:
 > _Freeing oneself from words is liberation. — Bodhidharma_
 
 > _In a world that is constantly changing, it is to our advantage to learn how to adapt and enjoy something better. — Spencer Johnson_
+
+> _Remember we're all in this alone. — Lily Tomlin_
 
 <!--QUOTE_END-->
 
