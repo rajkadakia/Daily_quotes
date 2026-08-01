@@ -195,6 +195,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _The more you are motivated by Love, The more Fearless & Free your action will be. — Dalai Lama_
 
+> _Stay curious, keep learning, and never stop growing. — Anonymous_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -394,6 +396,8 @@ Quotes are added below this section every 4 days:
 > _The most efficient way of rendering the poor harmless is to teach them to want to imitate the rich. — Carlos Ruiz Zafon_
 
 > _The more you are motivated by Love, The more Fearless & Free your action will be. — Dalai Lama_
+
+> _Stay curious, keep learning, and never stop growing. — Anonymous_
 
 <!--QUOTE_END-->
 
