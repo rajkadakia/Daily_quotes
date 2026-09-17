@@ -219,6 +219,8 @@ This repository automatically updates its `README.md` file every 4 days with 1 n
 
 > _Against the assault of laughter nothing can stand. — Mark Twain_
 
+> _There is nothing more frightful than ignorance in action. — Johann Wolfgang von Goethe_
+
 - Each quote is inserted into this file just above the marker `<!--QUOTE_END-->`.
 - Each quote insertion is committed separately to simulate 3 contributions.
 
@@ -442,6 +444,8 @@ Quotes are added below this section every 4 days:
 > _Stay curious, keep learning, and never stop growing. — Anonymous_
 
 > _Against the assault of laughter nothing can stand. — Mark Twain_
+
+> _There is nothing more frightful than ignorance in action. — Johann Wolfgang von Goethe_
 
 <!--QUOTE_END-->
 
